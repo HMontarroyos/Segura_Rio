@@ -23,5 +23,6 @@ export const Container = styled.button`
 
 export const ContainerCard = styled.div`
   display: flex;
-  gap:20px;
+  gap:10px;
+  flex-wrap: wrap;
 `;
