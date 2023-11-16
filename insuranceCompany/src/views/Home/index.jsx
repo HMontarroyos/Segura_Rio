@@ -7,7 +7,7 @@ import happy_woman from "../../assets/images/happy_woman.png";
 
 const Home = () => {
   return (
-    <>
+    <div style={{width: "100%", overflowY: "none"}}>
       <Header />
       <S.Container>
         <S.ContainerText>
@@ -20,7 +20,7 @@ const Home = () => {
           <S.Image src={happy_woman} alt={"Uma foto de uma mulher sorrindo"} />
         </Fade>
       </S.Container>
-    </>
+    </div>
   );
 };
 
