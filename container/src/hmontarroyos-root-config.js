@@ -8,8 +8,8 @@ registerApplication({
 });
 
 registerApplication({
-  name: "@hmontarroyos/coverage",
-  app: () => System.import("@hmontarroyos/coverage"),
+  name: "@hmontarroyos/coverageInsuranceCompany",
+  app: () => System.import("@hmontarroyos/coverageInsuranceCompany"),
   activeWhen: (location) =>
     location.pathname === "/",
 });
