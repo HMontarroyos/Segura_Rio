@@ -43,15 +43,7 @@
     />
 
     <% if (isLocal) { %>
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "@hmontarroyos/root-config": "//localhost:9000/hmontarroyos-root-config.js",
-          "@hmontarroyos/insuranceCompany": "//localhost:8500/hmontarroyos-insuranceCompany.js",
-          "@hmontarroyos/coverageInsuranceCompany": "//localhost:8501/hmontarroyos-coverageInsuranceCompany.js"
-        }
-      }
-    </script>
+    <script type="systemjs-importmap" src="https://segura-rio.nyc3.digitaloceanspaces.com/importmap.development.json"></script>
     <% } %>
 
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
