@@ -1,0 +1,7 @@
+{
+    "imports": {
+      "@hmontarroyos/root-config": "https://segura-rio.nyc3.digitaloceanspaces.com/root/hmontarroyos-root-config.js",
+      "@hmontarroyos/insuranceCompany": "https://segura-rio.nyc3.digitaloceanspaces.com/insuranceCompany/hmontarroyos-insuranceCompany.js",
+      "@hmontarroyos/coverageInsuranceCompany": "https://segura-rio.nyc3.digitaloceanspaces.com/coverageInsuranceCompany/hmontarroyos-coverageInsuranceCompany.js"
+    }
+  }
