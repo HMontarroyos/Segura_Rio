@@ -1,10 +1,9 @@
 import * as S from "./styled";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 
-function CardCoverage({ name, icon, description }) {
-  console.log("ICON", icon);
+function CardCoverage({ name, icon, description, onClick }) {
   return (
-    <S.Container onClick={()=> console.log("ENTROu")}>
+    <S.Container onClick={() => onClick({ title: name, description, icon })}>
       <S.Title>{name}</S.Title>
       <S.ContainerIcon>{icon}</S.ContainerIcon>
       <S.Button>
