@@ -3,7 +3,7 @@ import axios from 'axios';
 
 async function fetchData() {
   try {
-    const response = await axios.get('https://run.mocky.io/v3/39566f8f-1da0-47b4-952d-45b0a055188d');
+    const response = await axios.get('https://run.mocky.io/v3/f9d31078-7dc0-4cd9-b962-8b0b3f274fcd');
     const data = response.data;
 
     data.applications.forEach(app => {

@@ -2,6 +2,7 @@
     "imports": {
       "@hmontarroyos/root-config": "http://localhost:9000/hmontarroyos-root-config.js",
       "@hmontarroyos/insuranceCompany": "http://localhost:8500/hmontarroyos-insuranceCompany.js",
-      "@hmontarroyos/coverageInsuranceCompany": "http://localhost:8501/hmontarroyos-coverageInsuranceCompany.js"
+      "@hmontarroyos/coverageInsuranceCompany": "http://localhost:8501/hmontarroyos-coverageInsuranceCompany.js",
+      "@hmontarroyos/formInsuranceCompany": "http://localhost:8502/hmontarroyos-formInsuranceCompany.js"
     }
   }
