@@ -9,8 +9,8 @@ export const Container = styled.button`
   margin-top: 10px;
   border-radius: 5px;
   background-color: ${() => darken(0.1, "#0069FF")};
-  height: 60px;
-  width: 287px;
+  height: 40px;
+  width: 150px;
   cursor: pointer;
   color: white;
   font-weight: bold;
