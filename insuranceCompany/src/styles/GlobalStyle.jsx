@@ -16,6 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Exo 2', sans-serif;
   }
 
-  body {background-color:  white;}
+  body {background-color:  #CCE1FF;}
 
 `;
