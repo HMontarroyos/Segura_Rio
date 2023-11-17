@@ -1,9 +1,17 @@
 .custom-toast {
-  font-family: 'Kdam Thmor Pro', sans-serif;
-font-size: 12px;
-  background-color: #0069FF;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-size: 12px;
+  background-color: #0069ff;
   color: #ffffff;
 }
+
+.custom-toast-error {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-size: 12px;
+  background-color: #BB0B0B;
+  color: #ffffff;
+}
+
 
 .Toastify__progress-bar {
   background-color: #96cbd5;

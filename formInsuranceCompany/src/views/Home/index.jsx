@@ -1,15 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styled";
 import "./style.css";
 import { toast } from "react-toastify";
+import { isValidEmail, isValidCPF, isValidPhone } from "../../utils";
 import { benefits } from "../../global/const";
 import { Button } from "../../components";
 
 const Home = () => {
-  const handleSubmit = () => {
-    toast.success("Breve um consultor irá retornar o contato", {
-      className: "custom-toast",
+  const [formValues, setFormValues] = useState({
+    nome: "",
+    cpf: "",
+    email: "",
+    telefone: "",
+  });
+
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormValues({
+      ...formValues,
+      [name]: value,
     });
+
+    const allFieldsFilled = Object.values(formValues).every(
+      (val) => val.trim() !== ""
+    );
+    setIsButtonDisabled(!allFieldsFilled);
+  };
+
+  const handleSubmit = () => {
+    if (
+      isValidEmail(formValues.email) &&
+      isValidCPF(formValues.cpf) &&
+      isValidPhone(formValues.telefone)
+    ) {
+      toast.success("Breve um consultor irá retornar o contato", {
+        className: "custom-toast",
+      });
+
+      setFormValues({
+        nome: "",
+        cpf: "",
+        email: "",
+        telefone: "",
+      });
+
+      setIsButtonDisabled(true);
+    } else {
+      toast.error(
+        "Por favor, preencha os campos corretamente, para que o consultor possa contatá-lo",
+        {
+          className: "custom-toast-error",
+        }
+      );
+    }
   };
 
   return (
@@ -42,6 +88,8 @@ const Home = () => {
             id="nome"
             name="nome"
             placeholder="Nome"
+            value={formValues.nome}
+            onChange={handleChange}
             required
           />
           <S.Input
@@ -49,7 +97,8 @@ const Home = () => {
             id="cpf"
             name="cpf"
             placeholder="Cpf do Segurado"
-            /*  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" */
+            value={formValues.cpf}
+            onChange={handleChange}
             required
           />
           <S.Input
@@ -57,18 +106,25 @@ const Home = () => {
             id="email"
             name="email"
             placeholder="E-mail"
+            value={formValues.email}
+            onChange={handleChange}
             required
           />
           <S.Input
             type="tel"
             id="telefone"
             name="telefone"
-            /* pattern="\d{3}-\d{4}-\d{4}" */
             placeholder="Telefone"
+            value={formValues.telefone}
+            onChange={handleChange}
             required
           />
         </S.Form>
-        <Button text={"Enviar"} onClick={handleSubmit} />
+        <Button
+          text={"Enviar"}
+          onClick={handleSubmit}
+          disabled={isButtonDisabled}
+        />
       </S.ContainerForm>
     </S.Container>
   );

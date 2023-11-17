@@ -10,22 +10,36 @@ export const Title = styled.h1`
 `;
 
 export const Container = styled.div`
-  background-color: ${() => lighten(0.4, "#0069FF")} !important;
+  background-color: ${() => lighten(0.4, "#0069FF")};
   display: flex;
   justify-content: space-around;
   text-align: center;
   padding: 20px;
   padding-top: 40px;
-  background-color: white;
-  width: 100%;
   padding-bottom: 80px;
+
+  @media (max-width: 828px) {
+    flex-direction: column;
+  }
+
 `;
 
-export const ContainerBenefits = styled.div``;
+export const ContainerBenefits = styled.div`
+display: flex;
+align-items: center;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+
+`;
 
 export const ContainerTextBenefits = styled.div`
   width: 400px;
   margin-bottom: 30px;
+
+  @media (max-width: 498px) {
+    width: 200px;
+  }
 `;
 
 export const ContainerIcon = styled.div`
