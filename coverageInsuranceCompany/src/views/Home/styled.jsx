@@ -14,10 +14,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 35px;
+  padding-top: 35px;
   padding: 20px;
   background-color: white;
-  width: 100%;
   padding-bottom: 80px;
 `;
 

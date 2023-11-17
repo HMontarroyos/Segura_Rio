@@ -3,7 +3,6 @@ import { darken } from "polished";
 
 export const Container = styled.div`
   z-index: 9999;
-  width: 100%;
   top: 0;
 `;
 
