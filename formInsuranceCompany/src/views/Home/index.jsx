@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as S from "./styled";
 import "./style.css";
 import { toast } from "react-toastify";
+
 import {
   isValidEmail,
   isValidCPF,
@@ -31,7 +32,14 @@ const Home = () => {
 
     handleChange(e);
 
-    if (isValidCEP(value) && value.length === 8) {
+    if (value.trim() === "") {
+      setFormValues((prevFormValues) => ({
+        ...prevFormValues,
+        address: "",
+        city: "",
+        state: "",
+      }));
+    } else if (isValidCEP(value) && value.length === 8) {
       try {
         const cepData = await getCep(value);
 
@@ -60,7 +68,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Verificar a validação sempre que o formValues for atualizado
     const allFieldsFilled = Object.values(formValues).every(
       (val) => val.trim() !== ""
     );
@@ -80,6 +87,11 @@ const Home = () => {
         sessionStorage.setItem("user", JSON.stringify(formValues));
       } else {
         sessionStorage.setItem("user", JSON.stringify(formValues));
+      }
+
+      if (typeof window.clarity === "function") {
+        console.log("Enviada informação ao Clarity");
+        window.clarity("set", "Usuário do Formulário ", formValues);
       }
 
       toast.success("Breve um consultor irá retornar o contato", {
