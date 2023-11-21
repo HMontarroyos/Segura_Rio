@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
 import "./style.css";
+import { clarityEvent } from "../../utils";
 import { toast } from "react-toastify";
 
 import {
@@ -89,10 +90,7 @@ const Home = () => {
         sessionStorage.setItem("user", JSON.stringify(formValues));
       }
 
-      if (typeof window.clarity === "function") {
-        console.log("Enviada informação ao Clarity");
-        window.clarity("set", "Usuário do Formulário ", formValues);
-      }
+      clarityEvent("Usuário do Formulário ", formValues);
 
       toast.success("Breve um consultor irá retornar o contato", {
         className: "custom-toast",

@@ -25,6 +25,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media (min-width: 850px) {
+    width: calc(100% - 100px);
+  }
+
   @media (max-width: 850px) {
     width: calc(100% - 100px);
   }
