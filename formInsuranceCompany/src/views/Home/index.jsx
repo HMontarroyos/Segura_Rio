@@ -1,50 +1,100 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styled";
 import "./style.css";
 import { toast } from "react-toastify";
-import { isValidEmail, isValidCPF, isValidPhone } from "../../utils";
+import {
+  isValidEmail,
+  isValidCPF,
+  isValidPhone,
+  isValidCEP,
+} from "../../utils";
+import { getCep } from "../../server/api";
 import { benefits } from "../../global/const";
 import { Button } from "../../components";
 
 const Home = () => {
   const [formValues, setFormValues] = useState({
-    nome: "",
+    name: "",
     cpf: "",
     email: "",
-    telefone: "",
+    phone: "",
+    cep: "",
+    address: "",
+    city: "",
+    state: "",
   });
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
+  const handleCep = async (e) => {
+    const { value } = e.target;
+
+    handleChange(e);
+
+    if (isValidCEP(value) && value.length === 8) {
+      try {
+        const cepData = await getCep(value);
+
+        setFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          address: cepData.logradouro,
+          city: cepData.bairro,
+          state: cepData.localidade,
+        }));
+      } catch (error) {
+        console.error("Error fetching address", error);
+        toast.error("Por favor, preencha com um cep válido", {
+          className: "custom-toast-error",
+        });
+      }
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormValues({
-      ...formValues,
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
       [name]: value,
-    });
+    }));
+  };
 
+  useEffect(() => {
+    // Verificar a validação sempre que o formValues for atualizado
     const allFieldsFilled = Object.values(formValues).every(
       (val) => val.trim() !== ""
     );
     setIsButtonDisabled(!allFieldsFilled);
-  };
+  }, [formValues]);
 
   const handleSubmit = () => {
     if (
       isValidEmail(formValues.email) &&
       isValidCPF(formValues.cpf) &&
-      isValidPhone(formValues.telefone)
+      isValidPhone(formValues.phone) &&
+      isValidCEP(formValues.cep)
     ) {
+      const savedUser = localStorage.getItem("user");
+
+      if (savedUser) {
+        sessionStorage.setItem("user", JSON.stringify(formValues));
+      } else {
+        sessionStorage.setItem("user", JSON.stringify(formValues));
+      }
+
       toast.success("Breve um consultor irá retornar o contato", {
         className: "custom-toast",
       });
 
       setFormValues({
-        nome: "",
+        name: "",
         cpf: "",
         email: "",
-        telefone: "",
+        phone: "",
+        cep: "",
+        address: "",
+        city: "",
+        state: "",
       });
 
       setIsButtonDisabled(true);
@@ -59,7 +109,7 @@ const Home = () => {
   };
 
   return (
-    <S.Container id={"form"}>
+    <S.Container>
       <S.ContainerBenefits>
         <S.Title>Aproveite já nossos benefícios </S.Title>
         {benefits?.map((benefit, key) => (
@@ -82,13 +132,13 @@ const Home = () => {
       <S.ContainerForm>
         <S.Title>Solicite aqui sua cotação !</S.Title>
         <S.Description>Deixe seu contato para falarmos com você.</S.Description>
-        <S.Form>
+        <S.Form id={"form"}>
           <S.Input
             type="text"
-            id="nome"
-            name="nome"
+            id="name"
+            name="name"
             placeholder="Nome"
-            value={formValues.nome}
+            value={formValues.name}
             onChange={handleChange}
             required
           />
@@ -111,13 +161,50 @@ const Home = () => {
             required
           />
           <S.Input
-            type="tel"
-            id="telefone"
-            name="telefone"
+            type="telefone"
+            id="phone"
+            name="phone"
             placeholder="Telefone"
-            value={formValues.telefone}
+            value={formValues.phone}
             onChange={handleChange}
             required
+          />
+          <S.Input
+            type="text"
+            id="cep"
+            name="cep"
+            placeholder="Cep"
+            value={formValues.cep}
+            maxLength={8}
+            onChange={handleCep}
+            required
+          />
+          <S.Input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Endereço"
+            value={formValues.address}
+            onChange={handleChange}
+            disabled
+          />
+          <S.Input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Cidade"
+            value={formValues.city}
+            onChange={handleChange}
+            disabled
+          />
+          <S.Input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="Estado"
+            value={formValues.state}
+            onChange={handleChange}
+            disabled
           />
         </S.Form>
         <Button

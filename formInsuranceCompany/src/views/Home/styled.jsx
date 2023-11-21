@@ -87,8 +87,13 @@ export const Input = styled.input`
   width: 100%;
   transition: border-color 0.3s ease, border-width 0.3s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: ${darken(0.1, "#96cbd5")};
     border-width: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7; 
   }
 `;
