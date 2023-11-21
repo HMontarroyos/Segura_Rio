@@ -12,7 +12,6 @@ export const Header = styled.header`
   align-items: center;
   justify-content: flex-start;
   padding: 0.5rem 1rem;
-  height: 60px;
 `;
 
 export const Navigation = styled.div`

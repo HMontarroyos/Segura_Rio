@@ -27,7 +27,6 @@ export const Container = styled.button`
 `;
 
 export const ContainerText = styled.div`
-  padding: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
