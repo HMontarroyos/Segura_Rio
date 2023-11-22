@@ -4,11 +4,13 @@ import axios from "axios";
 async function fetchData() {
   try {
     const response = await axios.get(
-      "https://run.mocky.io/v3/f9d31078-7dc0-4cd9-b962-8b0b3f274fcd"
+      "https://run.mocky.io/v3/fbfe162e-ad1d-4edf-821f-021f6246a5ab"
     );
     const data = response.data;
 
-    const importPromises = data.applications.map((app) =>
+    const sortedApplications = data.applications.sort((a, b) => a.order - b.order);
+
+    const importPromises = sortedApplications.map((app) =>
       registerApplication({
         name: app.name,
         app: () => System.import(app.package),
