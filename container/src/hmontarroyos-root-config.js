@@ -8,7 +8,9 @@ async function fetchData() {
     );
     const data = response.data;
 
-    const sortedApplications = data.applications.sort((a, b) => a.order - b.order);
+    const sortedApplications = data.applications.sort(
+      (a, b) => a.order - b.order
+    );
 
     const importPromises = sortedApplications.map((app) =>
       registerApplication({
@@ -21,10 +23,12 @@ async function fetchData() {
     );
 
     await Promise.all(importPromises);
+
+    setTimeout(() => {
+      start({ urlRerouteOnly: true });
+    }, 1000);
   } catch (error) {
     console.error("Error getting data:", error);
-  } finally {
-    start({ urlRerouteOnly: true });
   }
 }
 
