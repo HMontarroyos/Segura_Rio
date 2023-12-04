@@ -2,31 +2,35 @@ import { FaHouse, FaBuilding } from "react-icons/fa6";
 import { MdOutlinePhoneIphone, MdAgriculture } from "react-icons/md";
 import { IoMdPerson } from "react-icons/io";
 
-
 export const coverages = [
   {
     name: "Seguro Residência",
     icon: <FaHouse />,
-    description: "Permite assegurar uma casa, apartamento",
+    description:
+      "O seguro residencial oferece proteção financeira para a sua casa, cobrindo danos causados por eventos como incêndios, roubos, desastres naturais e responsabilidade civil. Ele proporciona tranquilidade ao proprietário, garantindo a reparação ou substituição de bens e estruturas afetadas.",
   },
   {
     name: "Seguro Empresarial",
-    icon: <FaBuilding/>,
-    description: "Permite assegurar uma empresa de vários ramos diferentes, como por exemplo: Comércio, Indústria, Prestação de Serviços, entre outros.",
+    icon: <FaBuilding />,
+    description:
+      "O seguro empresarial resguarda as empresas contra diversos riscos, incluindo danos ao patrimônio, interrupção das operações, responsabilidade civil e outros imprevistos. Oferece suporte financeiro para lidar com adversidades, permitindo que o negócio se recupere e prospere.",
   },
   {
     name: "Seguro de Itens Pessoais",
     icon: <MdOutlinePhoneIphone />,
-    description: "Assegura carteira, conta bancária, celular, etc, em caso de roubo ou furto.",
+    description:
+      "Este seguro protege os pertences pessoais do segurado, como eletrônicos, joias, roupas e outros itens de valor. Oferece cobertura contra roubo, danos acidentais ou perda, proporcionando compensação financeira para a reposição dos itens assegurados.",
   },
   {
-    name: "Seguro de Retenção",
+    name: "Seguro de Vida",
     icon: <IoMdPerson />,
-    description: "Igual ao Residencial e apenas o plano básico.",
+    description:
+      "O seguro de vida fornece proteção financeira aos beneficiários do segurado em caso de falecimento. Além disso, muitos planos oferecem benefícios adicionais, como cobertura por invalidez, doenças graves e despesas funerárias. Este tipo de seguro proporciona paz de espírito, garantindo apoio financeiro aos entes queridos em momentos difíceis.",
   },
   {
-    name: "Seguro Agricula Flex",
+    name: "Seguro Agrícola Flex",
     icon: <MdAgriculture />,
-    description: "Seguro para fazendas, podendo assegurar uma cultura (Ex: Plantação de soja) por UF/Município.",
-  }
+    description:
+      "O seguro agrícola visa proteger os produtores rurais contra perdas financeiras causadas por eventos adversos, como intempéries climáticas, pragas e doenças. Garante a estabilidade financeira do agricultor, auxiliando na recuperação dos prejuízos e assegurando a continuidade das atividades agrícolas.",
+  },
 ];
