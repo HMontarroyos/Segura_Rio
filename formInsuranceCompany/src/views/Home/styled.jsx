@@ -80,16 +80,18 @@ export const Input = styled.input`
   font-size: 18px;
   line-height: 1.3;
   height: 35px;
-  border: 1px solid #96cbd5;
+  border: 2px solid #003F99;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 20px;
   width: 100%;
   transition: border-color 0.3s ease, border-width 0.3s ease;
 
-  &:hover:not(:disabled) {
+  &:focus-within:not(:disabled) {
     border-color: ${darken(0.1, "#96cbd5")};
-    border-width: 2px;
+  }
+  &:hover:not(:disabled) {
+    border-color: ${darken(0.2, "#96cbd5")};
   }
 
   &:disabled {
