@@ -1,8 +1,8 @@
 {
     "imports": {
-      "@hmontarroyos/root-config": "https://segura-rio.nyc3.digitaloceanspaces.com/root/hmontarroyos-root-config.js",
-      "@hmontarroyos/insuranceCompany": "https://segura-rio.nyc3.digitaloceanspaces.com/insuranceCompany/hmontarroyos-insuranceCompany.js",
-      "@hmontarroyos/coverageInsuranceCompany": "https://segura-rio.nyc3.digitaloceanspaces.com/coverageInsuranceCompany/hmontarroyos-coverageInsuranceCompany.js",
-      "@hmontarroyos/formInsuranceCompany": "https://segura-rio.nyc3.digitaloceanspaces.com/formInsuranceCompany/hmontarroyos-formInsuranceCompany.js"
+      "@hmontarroyos/root-config": "https://drive.google.com/file/d/1JSuHeXGB5AKs2D9v2R5Ik5KXN1NAytJR/view?usp=drive_link",
+      "@hmontarroyos/insuranceCompany": "https://drive.google.com/file/d/1xtNs_teIbIqk51lrDMX4fQOTVcPG5Tbo/view?usp=drive_link",
+      "@hmontarroyos/coverageInsuranceCompany": "https://drive.google.com/file/d/1fCT2AmMyAokBVyvRbkgy7n3h6eze-Ng2/view?usp=drive_link",
+      "@hmontarroyos/formInsuranceCompany": "https://drive.google.com/file/d/1Uq67zx6DQxJs57D2f_bwhbV1z7IhoyQv/view?usp=drive_link"
     }
   }
